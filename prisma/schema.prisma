@@ -27,4 +27,8 @@ model Booking {
 
   status        String   @default("PENDING")
   adminNotes    String?
+  serviceAddress String?
+  
+  // NEW: Soft Delete Flag
+  deletedAt     DateTime?
 }

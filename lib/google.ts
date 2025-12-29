@@ -6,12 +6,11 @@ const PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"); // Fi
 const CLIENT_EMAIL = process.env.GOOGLE_CLIENT_EMAIL;
 const CALENDAR_ID = process.env.GOOGLE_CALENDAR_ID;
 
-const auth = new google.auth.JWT(
-    CLIENT_EMAIL,
-    undefined,
-    PRIVATE_KEY,
-    SCOPES
-);
+const auth = new google.auth.JWT({
+    email: CLIENT_EMAIL,
+    key: PRIVATE_KEY,
+    scopes: SCOPES
+});
 
 const calendar = google.calendar({ version: "v3", auth });
 
