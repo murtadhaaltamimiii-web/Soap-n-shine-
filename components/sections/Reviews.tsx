@@ -28,42 +28,43 @@ export default function Reviews() {
     const googleReviewLink = "https://www.google.com/maps";
 
     return (
-        <section className="py-24 bg-white">
-            <div className="container mx-auto px-4">
+        <section id="reviews" className="py-20 sm:py-24 lg:py-28 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 {/* HEADER WITH GOOGLE BADGE */}
-                <div className="flex flex-col items-center text-center mb-16">
-                    <div className="flex items-center gap-2 mb-4 bg-gray-50 px-4 py-2 rounded-full border border-gray-200">
+                <div className="flex flex-col items-center text-center mb-12 sm:mb-16 max-w-3xl mx-auto space-y-4">
+                    <div className="flex items-center gap-2 bg-blue-50 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-blue-100">
                         <Image
                             src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
                             alt="Google"
                             width={20}
                             height={20}
+                            className="w-4 h-4 sm:w-5 sm:h-5"
                         />
-                        <span className="text-sm font-bold text-gray-700">5.0 Star Customer Rating</span>
+                        <span className="text-xs sm:text-sm font-bold text-blue-700">5.0 Star Customer Rating</span>
                     </div>
-                    <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-4">Milton&apos;s Most Trusted Detailers</h2>
-                    <p className="text-gray-500 max-w-2xl">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-tight">Milton&apos;s Most Trusted Detailers</h2>
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                         Join hundreds of happy car owners in the GTA who trust Soap n Shine with their vehicles.
                     </p>
                 </div>
 
                 {/* REVIEWS GRID */}
-                <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto mb-12 sm:mb-16">
                     {reviews.map((review, i) => (
-                        <div key={i} className="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow">
-                            <div className="flex items-center gap-1 mb-4 text-yellow-400">
+                        <div key={i} className="bg-white p-6 sm:p-8 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-200">
+                            <div className="flex items-center gap-1 mb-4 sm:mb-5 text-yellow-400">
                                 {[...Array(review.stars)].map((_, i) => (
                                     <Star key={i} size={18} fill="currentColor" />
                                 ))}
                             </div>
-                            <p className="text-gray-700 text-sm leading-relaxed mb-6">&quot;{review.text}&quot;</p>
+                            <p className="text-gray-700 text-base leading-relaxed mb-6">&quot;{review.text}&quot;</p>
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-sm">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-sm sm:text-base flex-shrink-0">
                                     {review.name.charAt(0)}
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-gray-900">{review.name}</p>
-                                    <p className="text-xs text-gray-400">{review.date}</p>
+                                    <p className="text-sm sm:text-base font-bold text-gray-900">{review.name}</p>
+                                    <p className="text-xs sm:text-sm text-gray-500">{review.date}</p>
                                 </div>
                             </div>
                         </div>
@@ -71,13 +72,13 @@ export default function Reviews() {
                 </div>
 
                 {/* CALL TO ACTION */}
-                <div className="mt-16 text-center">
+                <div className="text-center">
                     <Link
                         href={googleReviewLink}
                         target="_blank"
-                        className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-blue-600 transition"
+                        className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-gray-600 hover:text-blue-600 transition-colors duration-200"
                     >
-                        Read more reviews on Google Map <span aria-hidden="true">→</span>
+                        Read more reviews on Google Maps <span aria-hidden="true">→</span>
                     </Link>
                 </div>
             </div>

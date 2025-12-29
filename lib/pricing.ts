@@ -1,9 +1,9 @@
-// BASE PRICES (Increased by $20)
+// BASE PRICES (Increased by $30)
 export const VEHICLE_PRICES = {
-  sedan: 189, // Was 169
-  suv: 199,   // Was 179
-  truck: 209, // Was 189
-  van: 219,   // Was 199
+  sedan: 199, // Was 189
+  suv: 209,   // Was 199
+  truck: 219, // Was 209
+  van: 229,   // Was 219
 };
 
 // ADD-ONS (Unchanged)
@@ -17,8 +17,8 @@ export const ADD_ONS = [
 ];
 
 export function calculatePrice(vehicleType: string, selectedAddOns: string[] = []) {
-  // 1. Get Base Price (Default to 189 if unknown)
-  let total = VEHICLE_PRICES[vehicleType as keyof typeof VEHICLE_PRICES] || 189;
+  // 1. Get Base Price (Default to 199 if unknown)
+  let total = VEHICLE_PRICES[vehicleType as keyof typeof VEHICLE_PRICES] || 199;
 
   // 2. Add Selected Add-ons
   selectedAddOns.forEach((addOnId) => {
