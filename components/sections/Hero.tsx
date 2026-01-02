@@ -7,17 +7,17 @@ import { CheckCircle } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden bg-slate-900">
+        <section className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-white">
             {/* Background Image with Lighter Overlay */}
             <div className="absolute inset-0 z-0">
-                <div 
+                <div
                     className="w-full h-full bg-cover bg-center bg-no-repeat"
                     style={{
                         backgroundImage: "url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2600&auto=format&fit=crop')"
                     }}
                 />
-                {/* Lighter overlay - premium feel, not gloomy */}
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 via-slate-900/40 to-transparent" />
+                {/* Subtle overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
             </div>
 
             {/* Content Container - Left Aligned */}
@@ -30,27 +30,27 @@ export default function Hero() {
                         className="space-y-6 sm:space-y-8"
                     >
                         {/* Trust Badge / Service Descriptor */}
-                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm font-medium text-white">
+                        <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 text-sm font-medium text-blue-900">
                             <CheckCircle className="w-4 h-4 text-blue-400" />
                             <span>Premium Mobile Detailing Service</span>
                         </div>
 
                         {/* Headline */}
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1]">
                             Precision Detailing for{" "}
-                            <span className="text-blue-400">Maximum Shine</span>
+                            <span className="text-blue-600">Maximum Shine</span>
                         </h1>
 
                         {/* Supporting Sentence */}
-                        <p className="text-lg sm:text-xl text-slate-100 leading-relaxed max-w-xl">
+                        <p className="text-lg sm:text-xl text-slate-700 leading-relaxed max-w-xl">
                             Restore your vehicle&apos;s showroom glory with our premium detailing services. We come to you.
                         </p>
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 pt-2">
                             <Link href="/quote">
-                                <Button 
-                                    size="lg" 
+                                <Button
+                                    size="lg"
                                     className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base sm:text-lg h-12 sm:h-14 px-8 sm:px-10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
                                 >
                                     Get an Instant Quote
@@ -60,7 +60,7 @@ export default function Hero() {
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="w-full sm:w-auto text-base sm:text-lg h-12 sm:h-14 px-8 sm:px-10 rounded-lg bg-transparent text-white border-2 border-white/40 hover:bg-white/10 hover:border-white/60 transition-all duration-200 font-semibold"
+                                    className="w-full sm:w-auto text-base sm:text-lg h-12 sm:h-14 px-8 sm:px-10 rounded-lg bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 font-semibold"
                                 >
                                     Book Now
                                 </Button>

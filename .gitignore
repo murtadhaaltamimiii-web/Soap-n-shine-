@@ -7,3 +7,11 @@
 .env.local
 npm-debug.log*
 .vercel
+
+# Database files (SQLite)
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+prisma/*.db
+prisma/*.db-journal

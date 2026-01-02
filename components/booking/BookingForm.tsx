@@ -87,13 +87,13 @@ export default function BookingForm() {
                 <div>
                     <label className="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">3. Your Details</label>
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
-                        <input name="name" required placeholder="Full Name" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
-                        <input name="phone" required placeholder="Phone Number" className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
+                        <input name="name" required placeholder="Full Name" className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
+                        <input name="phone" required placeholder="Phone Number" className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
-                        <input name="date" type="date" required className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition text-gray-600" />
-                        <input name="time" type="time" required className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition text-gray-600" />
+                        <input name="date" type="date" required className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
+                        <input name="time" type="time" required className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
                     </div>
 
                     {/* NOTES FIELD */}
@@ -101,7 +101,7 @@ export default function BookingForm() {
                         name="notes"
                         rows={3}
                         placeholder="Any special notes about the car? (e.g. Gate code, specific stains, pets...)"
-                        className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition resize-none"
+                        className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition resize-none"
                     />
                     {/* Include the hidden address field so it's not null */}
                     <input type="hidden" name="address" value="Provided via Phone/Text" />
@@ -110,7 +110,7 @@ export default function BookingForm() {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-black hover:bg-gray-800 text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg flex justify-center items-center"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg flex justify-center items-center"
                 >
                     {loading ? "Processing..." : "Confirm Booking"}
                 </button>

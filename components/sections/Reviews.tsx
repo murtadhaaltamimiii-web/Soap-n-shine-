@@ -6,7 +6,7 @@ const reviews = [
     {
         name: "Sarah Jenkins",
         date: "2 weeks ago",
-        text: "Absolutely incredible service. They came to my office in Milton and detailed my SUV while I worked. It looks brand new! Highly recommend for busy professionals.",
+        text: "Absolutely incredible service. They came to my office in the GTA and detailed my SUV while I worked. It looks brand new! Highly recommend for busy professionals.",
         stars: 5,
     },
     {
@@ -25,7 +25,7 @@ const reviews = [
 
 export default function Reviews() {
     // PASTE YOUR REAL GOOGLE MAPS LINK HERE
-    const googleReviewLink = "https://www.google.com/maps";
+    const googleReviewLink = "https://g.page/r/CQs6MN717BKfEBM/review";
 
     return (
         <section id="reviews" className="py-20 sm:py-24 lg:py-28 bg-white">
@@ -42,7 +42,7 @@ export default function Reviews() {
                         />
                         <span className="text-xs sm:text-sm font-bold text-blue-700">5.0 Star Customer Rating</span>
                     </div>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-tight">Milton&apos;s Most Trusted Detailers</h2>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-tight">The GTA&apos;s Most Trusted Detailers</h2>
                     <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                         Join hundreds of happy car owners in the GTA who trust Soap n Shine with their vehicles.
                     </p>
@@ -76,6 +76,7 @@ export default function Reviews() {
                     <Link
                         href={googleReviewLink}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-gray-600 hover:text-blue-600 transition-colors duration-200"
                     >
                         Read more reviews on Google Maps <span aria-hidden="true">→</span>
