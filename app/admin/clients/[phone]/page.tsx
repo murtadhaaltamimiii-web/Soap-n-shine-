@@ -1,11 +1,21 @@
 import { prisma } from "@/lib/db";
 import { updateBookingNote, deleteClient, deleteBooking } from "@/app/actions";
+import { verifyAdminAuth } from "@/lib/auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 export const dynamic = 'force-dynamic';
 
 interface PageProps { params: { phone: string }; }
 
 export default async function ClientProfilePage({ params }: PageProps) {
+    // SECURITY: Verify admin authentication (IDOR Protection)
+    try {
+        await verifyAdminAuth();
+    } catch (error) {
+        // Not authorized - redirect to admin login
+        redirect('/admin');
+    }
+
     const decodedPhone = decodeURIComponent(params.phone);
 
     const formatPhone = (str: string) => {

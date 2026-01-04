@@ -31,4 +31,11 @@ model Booking {
   
   // NEW: Soft Delete Flag
   deletedAt     DateTime?
+  
+  // SECURITY & PERFORMANCE: Database Indexes
+  @@index([customerPhone])
+  @@index([requestedDate, requestedTime])
+  @@index([status])
+  @@index([deletedAt])
+  @@index([createdAt])
 }
