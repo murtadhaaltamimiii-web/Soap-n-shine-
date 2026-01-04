@@ -6,13 +6,22 @@ import { redirect } from "next/navigation";
 
 // 1. CREATE BOOKING
 export async function createBooking(formData: FormData) {
+    // Parse vehicles data from form
+    const vehiclesData = JSON.parse(formData.get("vehicles") as string);
+
+    // Create summary string for database
+    const vehiclesSummary = vehiclesData.map((v: any, idx: number) => {
+        const addOnsText = v.addOns.length > 0 ? ` (${v.addOns.join(", ")})` : "";
+        return `Vehicle ${idx + 1}: ${v.type}${addOnsText}`;
+    }).join(" | ");
+
     try {
         await prisma.booking.create({
             data: {
                 customerName: formData.get("name") as string,
                 customerPhone: formData.get("phone") as string,
-                vehicleType: formData.get("vehicleSize") as string,
-                packageType: formData.get("package") as string,
+                vehicleType: vehiclesSummary,
+                packageType: `${vehiclesData.length} vehicle(s)`,
                 priceEstimate: parseFloat(formData.get("price") as string),
                 requestedDate: formData.get("date") as string,
                 requestedTime: formData.get("time") as string,
@@ -27,7 +36,7 @@ export async function createBooking(formData: FormData) {
     }
 
     revalidatePath("/admin");
-    redirect("/quote?success=true");
+    redirect("/booking-confirmation");
 }
 
 // 2. UPDATE STATUS

@@ -2,14 +2,18 @@ import BookingForm from "@/components/booking/BookingForm";
 import Reviews from "@/components/sections/Reviews";
 import Services from "@/components/sections/Services";
 import FAQ from "@/components/sections/FAQ";
-
 import Hero from "@/components/sections/Hero";
+import HowItWorks from "@/components/sections/HowItWorks";
+import StickyCTA from "@/components/layout/StickyCTA";
 
 export default function Home() {
     return (
         <main className="min-h-screen bg-white">
             {/* HERO SECTION */}
             <Hero />
+
+            {/* HOW IT WORKS SECTION */}
+            <HowItWorks />
 
             {/* SERVICES SECTION */}
             <Services />
@@ -31,6 +35,9 @@ export default function Home() {
 
             {/* REVIEWS SECTION */}
             <Reviews />
+
+            {/* STICKY MOBILE CTA */}
+            <StickyCTA />
         </main>
     );
 }

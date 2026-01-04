@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Shield } from "lucide-react";
 
 export default function Hero() {
     return (
@@ -37,13 +37,12 @@ export default function Hero() {
 
                         {/* Headline */}
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1]">
-                            Precision Detailing for{" "}
-                            <span className="text-blue-600">Maximum Shine</span>
+                            We Bring the Showroom to <span className="text-blue-600">Your Driveway</span>
                         </h1>
 
                         {/* Supporting Sentence */}
                         <p className="text-lg sm:text-xl text-slate-700 leading-relaxed max-w-xl">
-                            Restore your vehicle&apos;s showroom glory with our premium detailing services. We come to you.
+                            Premium mobile detailing across the GTA. We bring water, power, and expertise—you just hand us the keys.
                         </p>
 
                         {/* CTA Buttons */}
@@ -65,6 +64,12 @@ export default function Hero() {
                                     Book Now
                                 </Button>
                             </Link>
+                        </div>
+
+                        {/* Trust Indicator */}
+                        <div className="flex items-center gap-2 text-sm text-slate-600 font-semibold">
+                            <Shield className="w-5 h-5 text-blue-600" />
+                            <span>Fully Insured & 5-Star Rated on Google</span>
                         </div>
                     </motion.div>
                 </div>

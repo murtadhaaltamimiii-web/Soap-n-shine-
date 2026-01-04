@@ -3,15 +3,53 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 15, 23, 42;  /* slate-900 for dark text */
+  --foreground-rgb: 15, 23, 42;
+  /* slate-900 for dark text */
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
+}
+
+html {
+  font-size: 100%;
+  /* 16px base */
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+/* Typography Boost - Ensure Readable Text */
+@layer base {
+
+  p,
+  input,
+  button,
+  li,
+  span,
+  label,
+  a {
+    @apply text-base;
+    /* Forces 16px default */
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  /* Ensure inputs and textareas are readable */
+  input,
+  textarea,
+  select {
+    @apply text-base;
+  }
 }
 
 @layer utilities {
