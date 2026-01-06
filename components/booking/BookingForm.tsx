@@ -166,9 +166,49 @@ export default function BookingForm() {
                         <input name="phone" required placeholder="Phone Number" className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition" />
                     </div>
 
+                    {/* Service Address Field */}
+                    <div className="mb-6">
+                        <input
+                            name="address"
+                            required
+                            placeholder="Service Address (e.g. 123 Maple Street, Driveway)"
+                            className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition"
+                        />
+                    </div>
+
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                         <input name="date" type="date" required className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition" />
-                        <input name="time" type="time" required className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition" />
+
+                        {/* Time Dropdown - 30 minute intervals */}
+                        <select
+                            name="time"
+                            required
+                            className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition"
+                            defaultValue=""
+                        >
+                            <option value="" disabled>Select Time</option>
+                            <option value="08:00">8:00 AM</option>
+                            <option value="08:30">8:30 AM</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="09:30">9:30 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="10:30">10:30 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="11:30">11:30 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="12:30">12:30 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="13:30">1:30 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="14:30">2:30 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="15:30">3:30 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="16:30">4:30 PM</option>
+                            <option value="17:00">5:00 PM</option>
+                            <option value="17:30">5:30 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                        </select>
                     </div>
 
                     {/* NOTES FIELD */}
@@ -178,8 +218,6 @@ export default function BookingForm() {
                         placeholder="Any special notes about the car(s)? (e.g. Gate code, specific stains, pets...)"
                         className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition resize-none"
                     />
-                    {/* Include the hidden address field so it's not null */}
-                    <input type="hidden" name="address" value="Provided via Phone/Text" />
                 </div>
 
                 <button
