@@ -57,6 +57,7 @@ export default function GalleryPage() {
                                     src="/portfolio/BMW.JPG"
                                     alt="BMW Full Detail"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover"
                                 />
                             </div>
@@ -69,6 +70,7 @@ export default function GalleryPage() {
                                     src="/portfolio/Honda_1.JPG"
                                     alt="Honda Exterior Detail"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover"
                                 />
                             </div>
