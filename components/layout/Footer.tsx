@@ -49,6 +49,9 @@ export default function Footer() {
                     <Link href="/gallery" className="text-sm text-gray-500 hover:text-brand transition">
                         Gallery
                     </Link>
+                    <Link href="/privacy" className="text-sm text-gray-500 hover:text-brand transition">
+                        Privacy
+                    </Link>
                     {/* Admin Link */}
                     <Link href="/admin" className="text-xs text-gray-300 hover:text-gray-500 transition">
                         Admin Login

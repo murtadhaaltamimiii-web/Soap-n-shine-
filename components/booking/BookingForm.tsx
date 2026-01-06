@@ -67,9 +67,13 @@ export default function BookingForm() {
             <div className="bg-brand p-6 text-center">
                 <p className="text-blue-100 font-medium uppercase tracking-widest text-xs mb-1">Total Estimate</p>
                 <div className="flex justify-center items-baseline gap-1 text-white">
-                    <span className="text-5xl font-bold">${totalPrice}</span>
+                    {totalPrice === 0 ? (
+                        <span className="text-2xl font-medium text-blue-200 italic">Select options below</span>
+                    ) : (
+                        <span className="text-5xl font-bold">${totalPrice}</span>
+                    )}
                 </div>
-                {vehicles.length > 1 && (
+                {vehicles.length > 1 && totalPrice > 0 && (
                     <p className="text-blue-100 text-sm mt-2">{vehicles.length} vehicles</p>
                 )}
             </div>
