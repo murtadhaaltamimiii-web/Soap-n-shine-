@@ -34,12 +34,6 @@ export default function Navbar() {
                     Reviews
                 </Link>
                 <Link
-                    href="/admin/login"
-                    className="bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
-                >
-                    Admin Login
-                </Link>
-                <Link
                     href="/#contact"
                     className="bg-brand hover:bg-brand-dark text-white px-6 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm"
                 >
@@ -80,13 +74,6 @@ export default function Navbar() {
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Reviews
-                        </Link>
-                        <Link
-                            href="/admin/login"
-                            className="bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200 px-4 py-2 rounded-lg font-medium text-sm transition-colors text-center mt-2"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Admin Login
                         </Link>
                         <Link
                             href="/#contact"

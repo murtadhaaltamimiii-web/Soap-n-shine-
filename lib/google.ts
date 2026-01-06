@@ -1,11 +1,36 @@
 import { google } from "googleapis";
 
+// ============================================================================
+// ROBUST PRIVATE KEY SANITIZER
+// Handles various formats from Vercel/Netlify env var storage
+// ============================================================================
+function getCleanPrivateKey(): string {
+    let key = process.env.GOOGLE_PRIVATE_KEY || "";
+
+    // 1. Remove surrounding double quotes if the user added them in Vercel
+    if (key.startsWith('"') && key.endsWith('"')) {
+        key = key.slice(1, -1);
+    }
+
+    // 2. Remove surrounding single quotes too
+    if (key.startsWith("'") && key.endsWith("'")) {
+        key = key.slice(1, -1);
+    }
+
+    // 3. Fix newlines - handles literal "\n" strings stored by Vercel
+    // This converts the escaped \n characters to actual line breaks
+    key = key.replace(/\\n/g, '\n');
+
+    return key;
+}
+
 // Load credentials from .env
 const SCOPES = ["https://www.googleapis.com/auth/calendar"];
-const PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"); // Fix newline issues
+const PRIVATE_KEY = getCleanPrivateKey();
 const CLIENT_EMAIL = process.env.GOOGLE_CLIENT_EMAIL;
 const CALENDAR_ID = process.env.GOOGLE_CALENDAR_ID;
 
+// Initialize auth with cleaned key
 const auth = new google.auth.JWT({
     email: CLIENT_EMAIL,
     key: PRIVATE_KEY,
@@ -16,7 +41,7 @@ const calendar = google.calendar({ version: "v3", auth });
 
 export async function createCalendarEvent(booking: any) {
     if (!PRIVATE_KEY || !CLIENT_EMAIL) {
-        console.error("Missing Google Credentials in .env");
+        console.error("❌ Missing Google Credentials in .env");
         return false;
     }
 
@@ -37,7 +62,10 @@ export async function createCalendarEvent(booking: any) {
         console.log(`✅ Calendar event created for ${booking.customerName}`);
         return true;
     } catch (error) {
-        console.error("Google Calendar Error:", error);
+        console.error("❌ Google Calendar Error:", error);
         return false;
     }
 }
+
+// Export the key sanitizer for use in test endpoint
+export { getCleanPrivateKey };
