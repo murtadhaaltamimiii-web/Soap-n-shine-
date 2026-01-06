@@ -28,7 +28,7 @@ export default function StickyCTA() {
                 </div>
                 {/* CTA Button */}
                 <Link href="/quote">
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg transition-all shadow-md active:scale-95">
+                    <button className="bg-brand hover:bg-brand-dark text-white font-bold px-8 py-3 rounded-lg transition-all shadow-md active:scale-95">
                         Book Now
                     </button>
                 </Link>

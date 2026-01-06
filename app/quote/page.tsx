@@ -6,9 +6,9 @@ export default function Home() {
         <main className="min-h-screen bg-gradient-to-b from-white to-slate-50">
 
             {/* HERO SECTION */}
-            <section className="relative h-[60vh] flex flex-col items-center justify-center text-center px-4 bg-gradient-to-b from-blue-50 to-white">
+            <section className="relative h-[60vh] flex flex-col items-center justify-center text-center px-4 bg-gradient-to-b from-brand-light to-white">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-slate-900">
-                    SOAP <span className="text-blue-600">N</span> SHINE
+                    SOAP <span className="text-brand">N</span> SHINE
                 </h1>
                 <p className="text-xl text-slate-600 max-w-2xl mb-8">
                     Premium Mobile Detailing. We come to you.

@@ -9,8 +9,13 @@ export async function verifyAdminAuth(): Promise<void> {
     const headersList = headers();
     const authHeader = headersList.get('authorization');
 
-    const adminUsername = process.env.ADMIN_USERNAME || 'admin';
-    const adminPassword = process.env.ADMIN_PASSWORD || 'changeme';
+    const adminUsername = process.env.ADMIN_USERNAME;
+    const adminPassword = process.env.ADMIN_PASSWORD;
+
+    // SECURITY: Fail-safe - never allow login if env vars not configured
+    if (!adminUsername || !adminPassword) {
+        throw new Error('UNAUTHORIZED: Admin credentials not configured');
+    }
 
     // Check if authorization header exists
     if (!authHeader || !authHeader.startsWith('Basic ')) {

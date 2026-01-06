@@ -26,7 +26,7 @@ export default function HowItWorks() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 {/* Section Header */}
                 <div className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
-                    <h2 className="text-xs sm:text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">How It Works</h2>
+                    <h2 className="text-xs sm:text-sm font-bold text-brand uppercase tracking-widest mb-3">How It Works</h2>
                     <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">Simple. Professional. Convenient.</h3>
                 </div>
 
@@ -35,7 +35,7 @@ export default function HowItWorks() {
                     {steps.map((step, idx) => (
                         <div key={idx} className="text-center">
                             {/* Icon Circle */}
-                            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 text-white rounded-full mb-6 shadow-lg">
+                            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-brand text-white rounded-full mb-6 shadow-lg">
                                 <step.icon className="w-8 h-8 sm:w-10 sm:h-10" />
                             </div>
                             {/* Title */}

@@ -30,7 +30,7 @@ export default async function ClientProfilePage({ params }: PageProps) {
         orderBy: { requestedDate: 'desc' }
     });
 
-    if (bookings.length === 0) return <div>Client not found. <Link href="/admin/clients" className="underline text-blue-600">Go Back</Link></div>;
+    if (bookings.length === 0) return <div>Client not found. <Link href="/admin/clients" className="underline text-brand">Go Back</Link></div>;
 
     const clientName = bookings[0].customerName;
     const serviceAddress = bookings.find(b => b.serviceAddress)?.serviceAddress || "No address recorded";

@@ -22,7 +22,7 @@ export default function BookingConfirmation() {
 
                 {/* Back to Home Button */}
                 <Link href="/">
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg transition-all shadow-md">
+                    <button className="bg-brand hover:bg-brand-dark text-white font-bold px-8 py-3 rounded-lg transition-all shadow-md">
                         Return to Home
                     </button>
                 </Link>

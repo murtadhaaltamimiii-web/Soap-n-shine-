@@ -70,7 +70,7 @@ export default function AdminBookingCard({ booking }: { booking: any }) {
                         <div className="flex flex-col">
                             <span className="capitalize font-medium">{booking.vehicleType} • {booking.packageType}</span>
                             {count > 1 && (
-                                <span className="text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full w-fit mt-1">
+                                <span className="text-xs bg-brand text-white px-2 py-0.5 rounded-full w-fit mt-1">
                                     {count} Cars
                                 </span>
                             )}
@@ -130,7 +130,7 @@ export default function AdminBookingCard({ booking }: { booking: any }) {
                             <button
                                 onClick={() => handleStatus("CONFIRMED")}
                                 disabled={loading}
-                                className="bg-blue-600 hover:bg-blue-700 py-3 rounded-xl font-bold text-sm transition-colors text-white disabled:opacity-50"
+                                className="bg-brand hover:bg-brand-dark py-3 rounded-xl font-bold text-sm transition-colors text-white disabled:opacity-50"
                             >
                                 ✔ Accept
                             </button>

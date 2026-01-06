@@ -7,7 +7,7 @@ import { CheckCircle, Shield } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-blue-50 to-white">
+        <section className="relative min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-brand-light to-white">
             {/* Background Image with Lighter Overlay */}
             <div className="absolute inset-0 z-0">
                 <div
@@ -30,14 +30,14 @@ export default function Hero() {
                         className="space-y-6 sm:space-y-8"
                     >
                         {/* Trust Badge / Service Descriptor */}
-                        <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 text-sm font-medium text-blue-900">
+                        <div className="inline-flex items-center gap-2 bg-brand-light border border-brand-light rounded-full px-4 py-2 text-sm font-medium text-brand-dark">
                             <CheckCircle className="w-4 h-4 text-blue-400" />
                             <span>Premium Mobile Detailing Service</span>
                         </div>
 
                         {/* Headline */}
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1]">
-                            We Bring the Showroom to <span className="text-blue-600">Your Driveway</span>
+                            We Bring the Showroom to <span className="text-brand">Your Driveway</span>
                         </h1>
 
                         {/* Supporting Sentence */}
@@ -50,7 +50,7 @@ export default function Hero() {
                             <Link href="/quote">
                                 <Button
                                     size="lg"
-                                    className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base sm:text-lg h-12 sm:h-14 px-8 sm:px-10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                                    className="w-full sm:w-auto bg-brand hover:bg-brand-dark text-white font-semibold text-base sm:text-lg h-12 sm:h-14 px-8 sm:px-10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
                                 >
                                     Get an Instant Quote
                                 </Button>
@@ -59,7 +59,7 @@ export default function Hero() {
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="w-full sm:w-auto text-base sm:text-lg h-12 sm:h-14 px-8 sm:px-10 rounded-lg bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50 transition-all duration-200 font-semibold"
+                                    className="w-full sm:w-auto text-base sm:text-lg h-12 sm:h-14 px-8 sm:px-10 rounded-lg bg-white text-brand border-2 border-brand hover:bg-brand-light transition-all duration-200 font-semibold"
                                 >
                                     Book Now
                                 </Button>
@@ -68,7 +68,7 @@ export default function Hero() {
 
                         {/* Trust Indicator */}
                         <div className="flex items-center gap-2 text-sm text-slate-600 font-semibold">
-                            <Shield className="w-5 h-5 text-blue-600" />
+                            <Shield className="w-5 h-5 text-brand" />
                             <span>Fully Insured & 5-Star Rated on Google</span>
                         </div>
                     </motion.div>

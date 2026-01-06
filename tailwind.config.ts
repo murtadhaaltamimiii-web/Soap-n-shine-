@@ -16,6 +16,13 @@ const config: Config = {
             },
         },
         extend: {
+            colors: {
+                brand: {
+                    DEFAULT: "#3C91CD", // Primary brand blue from logo
+                    light: "#E6F5FF",   // Subtle background tint
+                    dark: "#2A7AB0",    // Darker shade for hover states
+                },
+            },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic":

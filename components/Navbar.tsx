@@ -23,28 +23,34 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8 font-medium text-gray-700">
-                <Link href="/services" className="hover:text-blue-600 transition-colors duration-200 text-sm">
+            <div className="hidden md:flex items-center gap-3 font-medium text-gray-700">
+                <Link href="/#services" className="hover:text-brand transition-colors duration-200 text-sm">
                     Services
                 </Link>
-                <Link href="/gallery" className="hover:text-blue-600 transition-colors duration-200 text-sm">
+                <Link href="/gallery" className="hover:text-brand transition-colors duration-200 text-sm">
                     Gallery
                 </Link>
-                <Link href="#reviews" className="hover:text-blue-600 transition-colors duration-200 text-sm">
+                <Link href="/#reviews" className="hover:text-brand transition-colors duration-200 text-sm">
                     Reviews
                 </Link>
-                <Link 
-                    href="/quote" 
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-all duration-200 shadow-sm hover:shadow-md text-sm"
+                <Link
+                    href="/admin/login"
+                    className="bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200 px-4 py-2 rounded-lg font-medium text-sm transition-colors"
                 >
-                    Get a Quote
+                    Admin Login
+                </Link>
+                <Link
+                    href="/#contact"
+                    className="bg-brand hover:bg-brand-dark text-white px-6 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm"
+                >
+                    Get in Touch
                 </Link>
             </div>
 
             {/* Mobile Menu Button */}
             <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
+                className="md:hidden p-2 text-gray-700 hover:text-brand transition-colors"
                 aria-label="Toggle menu"
             >
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -54,33 +60,40 @@ export default function Navbar() {
             {mobileMenuOpen && (
                 <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg md:hidden">
                     <div className="flex flex-col px-4 py-6 gap-4">
-                        <Link 
-                            href="/services" 
-                            className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                        <Link
+                            href="/#services"
+                            className="text-gray-700 hover:text-brand transition-colors font-medium"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Services
                         </Link>
-                        <Link 
-                            href="/gallery" 
-                            className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                        <Link
+                            href="/gallery"
+                            className="text-gray-700 hover:text-brand transition-colors font-medium"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Gallery
                         </Link>
-                        <Link 
-                            href="#reviews" 
-                            className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                        <Link
+                            href="/#reviews"
+                            className="text-gray-700 hover:text-brand transition-colors font-medium"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Reviews
                         </Link>
-                        <Link 
-                            href="/quote" 
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold transition-all text-center mt-2"
+                        <Link
+                            href="/admin/login"
+                            className="bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200 px-4 py-2 rounded-lg font-medium text-sm transition-colors text-center mt-2"
                             onClick={() => setMobileMenuOpen(false)}
                         >
-                            Get a Quote
+                            Admin Login
+                        </Link>
+                        <Link
+                            href="/#contact"
+                            className="bg-brand hover:bg-brand-dark text-white px-6 py-2 rounded-lg font-medium text-sm transition-colors shadow-sm text-center"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            Get in Touch
                         </Link>
                     </div>
                 </div>

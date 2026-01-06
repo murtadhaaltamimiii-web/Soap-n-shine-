@@ -29,10 +29,10 @@ export default function ValuePropositions() {
                             return (
                                 <div
                                     key={index}
-                                    className="text-center space-y-3 bg-blue-50/30 border border-blue-100 rounded-lg p-6 sm:p-8"
+                                    className="text-center space-y-3 bg-brand-light/30 border border-brand-light rounded-lg p-6 sm:p-8"
                                 >
                                     <div className="flex justify-center mb-1">
-                                        <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-blue-50 text-blue-600">
+                                        <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-brand-light text-brand">
                                             <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
                                         </div>
                                     </div>

@@ -1,7 +1,19 @@
+'use client';
+
 import Link from "next/link";
 import { ReactNode } from "react";
+import { usePathname } from "next/navigation";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
+    const pathname = usePathname();
+    const isLoginPage = pathname === '/admin/login';
+
+    // 🔒 Login Page: Full screen, no sidebar
+    if (isLoginPage) {
+        return <>{children}</>;
+    }
+
+    // 🔓 Dashboard View: Sidebar + Content
     return (
         // FIXED LAYOUT: Sits on top of the global website (Navbar/Footer)
         <div className="fixed inset-0 z-[999] bg-[#f8f9fa] flex overflow-hidden">
@@ -25,6 +37,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                         <span>Trash</span>
                     </Link>
                 </nav>
+
                 <div className="p-8">
                     <Link href="/" className="text-[10px] font-semibold text-gray-600 hover:text-white uppercase tracking-widest transition">
                         ← Back to Site

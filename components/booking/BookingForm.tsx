@@ -64,7 +64,7 @@ export default function BookingForm() {
     return (
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 max-w-4xl mx-auto overflow-hidden">
             {/* HEADER */}
-            <div className="bg-blue-600 p-6 text-center">
+            <div className="bg-brand p-6 text-center">
                 <p className="text-blue-100 font-medium uppercase tracking-widest text-xs mb-1">Total Estimate</p>
                 <div className="flex justify-center items-baseline gap-1 text-white">
                     <span className="text-5xl font-bold">${totalPrice}</span>
@@ -85,7 +85,7 @@ export default function BookingForm() {
                             <button
                                 type="button"
                                 onClick={addVehicle}
-                                className="text-sm font-semibold text-blue-600 hover:text-blue-700 border border-blue-600 hover:border-blue-700 px-3 py-1.5 rounded-lg transition-colors"
+                                className="text-sm font-semibold text-brand hover:text-brand-dark border border-brand hover:border-brand-dark px-3 py-1.5 rounded-lg transition-colors"
                             >
                                 + Add Car
                             </button>
@@ -93,7 +93,7 @@ export default function BookingForm() {
                     </div>
 
                     {vehicles.map((vehicle, idx) => (
-                        <div key={vehicle.id} className="border-2 border-blue-100 rounded-xl p-6 mb-6 relative">
+                        <div key={vehicle.id} className="border-2 border-brand-light rounded-xl p-6 mb-6 relative">
                             {/* Vehicle Header */}
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="font-bold text-gray-900 text-lg">Vehicle {idx + 1}</h3>
@@ -117,8 +117,8 @@ export default function BookingForm() {
                                         type="button"
                                         onClick={() => updateVehicleType(vehicle.id, type)}
                                         className={`p-5 rounded-xl border-2 transition-all flex flex-col items-center gap-2 min-h-[100px] ${vehicle.type === type
-                                            ? "border-blue-600 bg-blue-50 text-blue-700"
-                                            : "border-gray-100 bg-white text-gray-500 hover:border-blue-200"
+                                            ? "border-brand bg-brand-light text-brand-dark"
+                                            : "border-gray-100 bg-white text-gray-500 hover:border-brand-light"
                                             }`}
                                     >
                                         <Car size={28} />
@@ -135,12 +135,12 @@ export default function BookingForm() {
                                         key={addon.id}
                                         onClick={() => toggleVehicleAddOn(vehicle.id, addon.id)}
                                         className={`cursor-pointer flex justify-between items-center p-4 rounded-lg border transition-all ${vehicle.addOns.includes(addon.id)
-                                            ? "border-blue-600 bg-blue-50"
+                                            ? "border-brand bg-brand-light"
                                             : "border-gray-200 hover:border-blue-300"
                                             }`}
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className={`w-5 h-5 rounded border flex items-center justify-center ${vehicle.addOns.includes(addon.id) ? "bg-blue-600 border-blue-600" : "border-gray-300 bg-white"
+                                            <div className={`w-5 h-5 rounded border flex items-center justify-center ${vehicle.addOns.includes(addon.id) ? "bg-brand border-brand" : "border-gray-300 bg-white"
                                                 }`}>
                                                 {vehicle.addOns.includes(addon.id) && <CheckCircle size={14} className="text-white" />}
                                             </div>
@@ -162,13 +162,13 @@ export default function BookingForm() {
                 <div>
                     <label className="block text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">2. Your Details</label>
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
-                        <input name="name" required placeholder="Full Name" className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
-                        <input name="phone" required placeholder="Phone Number" className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
+                        <input name="name" required placeholder="Full Name" className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition" />
+                        <input name="phone" required placeholder="Phone Number" className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition" />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
-                        <input name="date" type="date" required className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
-                        <input name="time" type="time" required className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition" />
+                        <input name="date" type="date" required className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition" />
+                        <input name="time" type="time" required className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition" />
                     </div>
 
                     {/* NOTES FIELD */}
@@ -176,7 +176,7 @@ export default function BookingForm() {
                         name="notes"
                         rows={3}
                         placeholder="Any special notes about the car(s)? (e.g. Gate code, specific stains, pets...)"
-                        className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-600 focus:outline-none transition resize-none"
+                        className="w-full p-3 bg-white border border-slate-300 text-slate-900 rounded-lg focus:ring-2 focus:ring-brand focus:outline-none transition resize-none"
                     />
                     {/* Include the hidden address field so it's not null */}
                     <input type="hidden" name="address" value="Provided via Phone/Text" />
@@ -185,7 +185,7 @@ export default function BookingForm() {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-brand hover:bg-brand-dark text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {loading ? "Processing..." : `Confirm Booking${vehicles.length > 1 ? ` (${vehicles.length} Vehicles)` : ""}`}
                 </button>

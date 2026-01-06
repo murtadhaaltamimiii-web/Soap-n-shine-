@@ -2,6 +2,7 @@ import { prisma } from "@/lib/db";
 import { updateBookingStatus, rescheduleBooking, updateBookingNote, deleteBooking, testCalendarConnection } from "@/app/actions";
 import { Booking } from "@/types";
 import AdminGraph from "@/app/components/AdminGraph";
+import LogoutButton from "./LogoutButton";
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
@@ -30,7 +31,7 @@ export default async function AdminPage() {
     return (
         <>
             {/* HEADER */}
-            <div className="mb-8 flex flex-col md:flex-row justify-between items-start gap-6">
+            <div className="mb-8 flex justify-between items-start gap-6">
                 <div>
                     <h1 className="text-2xl font-semibold text-gray-900 capitalize tracking-tight">Dashboard</h1>
                     <div className="flex items-center gap-3 mt-2">
@@ -45,6 +46,7 @@ export default async function AdminPage() {
                         </form>
                     </div>
                 </div>
+                <LogoutButton />
             </div>
 
             {/* INTERACTIVE GRAPH */}
@@ -57,7 +59,7 @@ export default async function AdminPage() {
                 <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-widest mb-8">Sales Funnel</h2>
                 <div className="flex items-end justify-around h-24 border-b border-gray-100 pb-2 px-10">
                     <div className="flex flex-col items-center gap-3 w-1/4 group">
-                        <div className="w-full max-w-[60px] bg-blue-100 rounded-sm relative" style={{ height: `${(leads / maxVal) * 100}%`, minHeight: '4px' }}></div>
+                        <div className="w-full max-w-[60px] bg-brand-light rounded-sm relative" style={{ height: `${(leads / maxVal) * 100}%`, minHeight: '4px' }}></div>
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Leads: {leads}</p>
                     </div>
                     <div className="flex flex-col items-center gap-3 w-1/4 group">

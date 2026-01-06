@@ -32,7 +32,7 @@ export default function Reviews() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 {/* HEADER WITH GOOGLE BADGE */}
                 <div className="flex flex-col items-center text-center mb-12 sm:mb-16 max-w-3xl mx-auto space-y-4">
-                    <div className="flex items-center gap-2 bg-blue-50 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-blue-100">
+                    <div className="flex items-center gap-2 bg-brand-light px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-brand-light">
                         <Image
                             src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
                             alt="Google"
@@ -40,7 +40,7 @@ export default function Reviews() {
                             height={20}
                             className="w-4 h-4 sm:w-5 sm:h-5"
                         />
-                        <span className="text-xs sm:text-sm font-bold text-blue-700">5.0 Star Customer Rating</span>
+                        <span className="text-xs sm:text-sm font-bold text-brand-dark">5.0 Star Customer Rating</span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight leading-tight">The GTA&apos;s Most Trusted Detailers</h2>
                     <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
@@ -59,7 +59,7 @@ export default function Reviews() {
                             </div>
                             <p className="text-gray-700 text-base leading-relaxed mb-6">&quot;{review.text}&quot;</p>
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-sm sm:text-base flex-shrink-0">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-brand-light rounded-full flex items-center justify-center text-brand-dark font-bold text-sm sm:text-base flex-shrink-0">
                                     {review.name.charAt(0)}
                                 </div>
                                 <div>
@@ -77,7 +77,7 @@ export default function Reviews() {
                         href={googleReviewLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                        className="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-gray-600 hover:text-brand transition-colors duration-200"
                     >
                         Read more reviews on Google Maps <span aria-hidden="true">→</span>
                     </Link>
