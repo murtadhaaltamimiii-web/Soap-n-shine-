@@ -26,6 +26,13 @@ export default function AdminLoginPage() {
         setLoading(true);
 
         try {
+            // Guard: Check if Firebase is initialized
+            if (!auth) {
+                setError('Authentication service unavailable');
+                setLoading(false);
+                return;
+            }
+
             // Sign in with Firebase
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
