@@ -42,7 +42,7 @@ export default function Hero() {
 
                         {/* Supporting Sentence */}
                         <p className="text-lg sm:text-xl text-slate-700 leading-relaxed max-w-xl">
-                            Premium mobile detailing across the GTA. We bring water, power, and expertise—you just hand us the keys.
+                            Premium mobile detailing across the GTA. Just provide water and power access—we handle the rest.
                         </p>
 
                         {/* CTA Buttons */}

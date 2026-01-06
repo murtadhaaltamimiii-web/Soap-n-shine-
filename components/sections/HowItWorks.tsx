@@ -12,7 +12,7 @@ export default function HowItWorks() {
         {
             icon: Truck,
             title: "We Come to You",
-            description: "Our fully equipped van arrives at your home or office. We bring our own water & power."
+            description: "Our fully equipped van arrives at your home or office. We simply need access to a water connection and a power outlet."
         },
         {
             icon: CreditCard,
