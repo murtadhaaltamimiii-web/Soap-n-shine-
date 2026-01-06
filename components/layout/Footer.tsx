@@ -8,7 +8,7 @@ export default function Footer() {
                 <div>
                     <p className="font-bold text-gray-900 text-lg mb-1">Soap N Shine</p>
                     <p className="text-gray-400 text-sm">
-                        &copy; {new Date().getFullYear()} Soap & Shine. All rights reserved.
+                        &copy; {new Date().getFullYear()} Soap N Shine. All rights reserved.
                     </p>
                 </div>
 
