@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { createBooking } from "@/app/actions";
 import { calculatePrice, ADD_ONS } from "@/lib/pricing";
 import { Car, CheckCircle, X } from "lucide-react";
@@ -14,16 +14,19 @@ export default function BookingForm() {
     const [vehicles, setVehicles] = useState<Vehicle[]>([
         { id: Date.now(), type: "sedan", addOns: [] }
     ]);
-    const [totalPrice, setTotalPrice] = useState(0);
     const [loading, setLoading] = useState(false);
 
-    // Calculate total price from all vehicles
-    useEffect(() => {
-        const total = vehicles.reduce((sum, vehicle) => {
+    // Calculate total price reactively using useMemo for immediate updates
+    const totalPrice = useMemo(() => {
+        return vehicles.reduce((sum, vehicle) => {
             return sum + calculatePrice(vehicle.type, vehicle.addOns);
         }, 0);
-        setTotalPrice(total);
     }, [vehicles]);
+
+    // Form validation - ensure price is valid
+    const isFormValid = useMemo(() => {
+        return vehicles.length > 0 && totalPrice > 0;
+    }, [vehicles, totalPrice]);
 
     // Add a new vehicle (max 5)
     const addVehicle = () => {
@@ -226,10 +229,13 @@ export default function BookingForm() {
 
                 <button
                     type="submit"
-                    disabled={loading}
-                    className="w-full bg-brand hover:bg-brand-dark text-white font-bold text-lg py-4 rounded-xl transition-all shadow-lg flex justify-center items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={loading || !isFormValid}
+                    className={`w-full font-bold text-lg py-4 rounded-xl transition-all shadow-lg flex justify-center items-center ${loading || !isFormValid
+                            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                            : "bg-brand hover:bg-brand-dark text-white"
+                        }`}
                 >
-                    {loading ? "Processing..." : `Confirm Booking${vehicles.length > 1 ? ` (${vehicles.length} Vehicles)` : ""}`}
+                    {loading ? "Processing..." : `Confirm Booking${vehicles.length > 1 ? ` (${vehicles.length} Vehicles)` : ""} • $${totalPrice}`}
                 </button>
             </form>
         </div>

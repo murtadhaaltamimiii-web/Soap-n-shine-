@@ -1,9 +1,9 @@
-// BASE PRICES (Increased by $30)
+// BASE PRICES (Increased by $30 total)
 export const VEHICLE_PRICES = {
-  sedan: 199, // Was 189
-  suv: 209,   // Was 199
-  truck: 219, // Was 209
-  van: 229,   // Was 219
+  sedan: 229, // Was 219
+  suv: 239,   // Was 229
+  truck: 249, // Was 239
+  van: 259,   // Was 249
 };
 
 // ADD-ONS (Unchanged)
