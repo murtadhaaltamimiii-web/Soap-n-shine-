@@ -27,12 +27,14 @@ export async function createCalendarEvent(booking: any) {
         await calendar.events.insert({
             calendarId: CALENDAR_ID || 'primary',
             requestBody: {
-                summary: `Car Detail: ${booking.customerName} (${booking.vehicleType})`,
-                description: `Phone: ${booking.customerPhone}\nPackage: ${booking.packageType}\nPrice: $${booking.priceEstimate}`,
+                summary: `Soap n Shine: ${booking.customerName} - ${booking.vehicleType}`,
+                description: `📞 Phone: ${booking.customerPhone}\n📦 Package: ${booking.packageType}\n💰 Price: $${booking.priceEstimate}\n📍 Address: ${booking.serviceAddress || booking.address || 'Not provided'}\n📝 Notes: ${booking.adminNotes || 'None'}`,
+                location: booking.serviceAddress || booking.address || '',
                 start: { dateTime: startDateTime.toISOString() },
                 end: { dateTime: endDateTime.toISOString() },
             },
         });
+        console.log(`✅ Calendar event created for ${booking.customerName}`);
         return true;
     } catch (error) {
         console.error("Google Calendar Error:", error);
