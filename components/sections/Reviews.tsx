@@ -4,21 +4,21 @@ import Link from "next/link";
 
 const reviews = [
     {
-        name: "Sarah Jenkins",
-        date: "2 weeks ago",
-        text: "Absolutely incredible service. They came to my office in the GTA and detailed my SUV while I worked. It looks brand new! Highly recommend for busy professionals.",
+        name: "Hala Issa",
+        date: "5 months ago",
+        text: "My car looks incredible, inside and out! I'm so impressed with the two young men who came to my house to detail it. They were professional, punctual, and meticulous. They worked so hard and didn't miss a single spot. My car hasn't looked this good since I drove it off the lot.",
         stars: 5,
     },
     {
-        name: "Michael Chen",
-        date: "1 month ago",
-        text: "I was skeptical about mobile detailing, but Soap n Shine blew me away. The clay bar treatment removed grit I didn't even know was there. Worth every penny.",
+        name: "Ru",
+        date: "3 months ago",
+        text: "Would definitely recommend for anyone who is interested in a thorough detailing service. They went over and beyond... Especially for that price point? Absolutely incredible and definitely top notch stuff. My truck was used for construction... it was in dire need for a detailing service.",
         stars: 5,
     },
     {
-        name: "David Ross",
-        date: "3 days ago",
-        text: "Best detailer in the GTA. They brought their own water and power, cleaned my truck in the driveway, and left zero mess. A+ professionalism.",
+        name: "Jahniya Castillo",
+        date: "4 months ago",
+        text: "Soap N Shine did an amazing job on my car! The attention to detail was unreal. every surface was spotless, and it looked better than when I bought it. Highly recommend for anyone who wants their car looking brand new",
         stars: 5,
     },
 ];
