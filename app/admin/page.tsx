@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/db";
-import { updateBookingStatus, rescheduleBooking, updateBookingNote, deleteBooking, testCalendarConnection } from "@/app/actions";
+import { updateBookingNote, testCalendarConnection } from "@/app/actions";
 import { Booking } from "@/types";
 import AdminGraph from "@/app/components/AdminGraph";
+import BookingActions from "@/app/components/BookingActions";
 import LogoutButton from "./LogoutButton";
 export const dynamic = 'force-dynamic';
 
@@ -103,26 +104,7 @@ export default async function AdminPage() {
                             </form>
                         </div>
                         <div className="flex flex-col md:flex-row gap-4 justify-between items-center pt-4 border-t border-gray-100">
-                            <div className="flex gap-2 items-center">
-                                {/* DELETE BUTTON */}
-                                <form action={async () => { "use server"; await deleteBooking(booking.id); }}>
-                                    <button className="text-gray-400 hover:text-red-600 p-2 rounded hover:bg-red-50 transition" title="Delete this specific activity">🗑️</button>
-                                </form>
-                                <form className="flex gap-2">
-                                    {booking.status === 'PENDING' && (
-                                        <>
-                                            <button formAction={updateBookingStatus.bind(null, booking.id, "CONFIRMED") as any} className="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded text-xs font-medium uppercase tracking-wide transition">Confirm</button>
-                                            <button formAction={updateBookingStatus.bind(null, booking.id, "CANCELLED") as any} className="bg-white border border-gray-200 hover:bg-red-50 hover:text-red-600 hover:border-red-200 text-gray-600 px-4 py-2 rounded text-xs font-medium uppercase tracking-wide transition">Deny</button>
-                                        </>
-                                    )}
-                                    {(booking.status === 'CONFIRMED' || booking.status === 'APPROVED') && (
-                                        <>
-                                            <button formAction={updateBookingStatus.bind(null, booking.id, "COMPLETED") as any} className="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded text-xs font-medium uppercase tracking-wide transition">Job Done</button>
-                                            <button formAction={updateBookingStatus.bind(null, booking.id, "CANCELLED") as any} className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-600 px-4 py-2 rounded text-xs font-medium uppercase tracking-wide transition">Cancel</button>
-                                        </>
-                                    )}
-                                </form>
-                            </div>
+                            <BookingActions bookingId={booking.id} status={booking.status} />
                         </div>
                     </div>
                 ))}
