@@ -10,7 +10,7 @@ const nextConfig = {
                     // HSTS - Enforce HTTPS (2 years with preload)
                     { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
                     // Prevent clickjacking
-                    { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+                    { key: 'X-Frame-Options', value: 'DENY' },
                     // Prevent MIME type sniffing
                     { key: 'X-Content-Type-Options', value: 'nosniff' },
                     // XSS Protection (legacy browsers)
@@ -19,6 +19,11 @@ const nextConfig = {
                     { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
                     // Disable unnecessary browser features
                     { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+                    // Content Security Policy
+                    {
+                        key: 'Content-Security-Policy',
+                        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://*.vercel-scripts.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://*.vercel.app https://*.googleapis.com https://*.google.com https://*.firebaseio.com https://*.cloudfunctions.net wss://*.firebaseio.com; frame-ancestors 'none';"
+                    },
                 ],
             },
         ];

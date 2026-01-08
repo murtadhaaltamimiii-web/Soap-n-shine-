@@ -5,25 +5,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { calculatePrice } from "@/lib/pricing";
 import { verifyAdminAuth } from "@/lib/auth";
-import { z } from "zod";
-
-// ============================================================================
-// SECURITY: INPUT VALIDATION SCHEMAS
-// ============================================================================
-
-const BookingInputSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name too long"),
-    phone: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number format"),
-    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid date format"),
-    time: z.string().regex(/^\d{2}:\d{2}$/, "Invalid time format"),
-    address: z.string().max(500, "Address too long").optional(),
-    notes: z.string().max(1000, "Notes too long").optional(),
-    vehicles: z.array(z.object({
-        id: z.number(),
-        type: z.enum(["sedan", "suv", "truck", "van"]),
-        addOns: z.array(z.string()),
-    })).min(1, "At least one vehicle required").max(5, "Maximum 5 vehicles per booking"),
-});
+import { BookingFormSchema, validateInput } from "@/lib/schemas";
 
 // ============================================================================
 // 1. CREATE BOOKING (PUBLIC - No Auth Required)
@@ -44,20 +26,20 @@ export async function createBooking(formData: FormData) {
             vehicles: vehiclesData,
         };
 
-        // SECURITY: Validate all inputs with Zod
-        const validationResult = BookingInputSchema.safeParse(rawInput);
+        // SECURITY: Validate all inputs with centralized Zod schema
+        const validationResult = validateInput(BookingFormSchema, rawInput);
         if (!validationResult.success) {
-            console.error("Validation failed:", validationResult.error.format());
+            console.error("Validation failed:", validationResult.error);
             return {
                 success: false,
-                error: "Invalid booking data: " + validationResult.error.errors[0].message
+                error: "Invalid booking data: " + validationResult.error
             };
         }
 
         const validated = validationResult.data;
 
         // SECURITY: Calculate price SERVER-SIDE (never trust client)
-        const serverCalculatedPrice = validated.vehicles.reduce((sum, vehicle) => {
+        const serverCalculatedPrice = validated.vehicles.reduce((sum: number, vehicle: { type: string; addOns: string[] }) => {
             return sum + calculatePrice(vehicle.type, vehicle.addOns);
         }, 0);
 
@@ -69,7 +51,7 @@ export async function createBooking(formData: FormData) {
         }
 
         // Create summary string for database
-        const vehiclesSummary = validated.vehicles.map((v, idx) => {
+        const vehiclesSummary = validated.vehicles.map((v: { type: string; addOns: string[] }, idx: number) => {
             const addOnsText = v.addOns.length > 0 ? ` (${v.addOns.join(", ")})` : "";
             return `Vehicle ${idx + 1}: ${v.type}${addOnsText}`;
         }).join(" | ");
